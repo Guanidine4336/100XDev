@@ -44,7 +44,7 @@ const users = [{
     gender:"male"
     }]
 
-console.log(users[0]["fname"]); 
+console.log(users[0].fname); 
 
 
 

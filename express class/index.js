@@ -39,7 +39,7 @@ app.post("/", function (req, res) {
         healthy: isHealthy
     })
     res.json({
-        msg: "Done"
+        msg: "Done" 
     })
 })
 
