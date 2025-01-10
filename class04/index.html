@@ -1,0 +1,34 @@
+<html>
+    <script>
+
+        // debouncing that is 
+        // har 1 sec baad hi request bhejna backend ko wo bhi
+        //  tab jab ek sec  tak koi type naa hora ho
+        // isiliye clearInterval se timeout to clear karre
+
+        let timeout;
+        function debouncecalculateSum(){
+
+            clearInterval(timeout);
+            timeout =setTimeout(function(){
+                calculateSum()
+            },1000);
+        }
+        async function calculateSum() {
+            const a = document.getElementById("firstnum").value;
+            const b = document.getElementById("secondnum").value;
+
+            if (a && b) {  // Check if both inputs have values
+                const response = await fetch(`http://localhost:3000/sumserver?a=${a}&b=${b}`);
+                const sum = await response.text();
+                document.getElementById("result").innerHTML = `Sum: ${sum}`;
+            }
+        }
+    </script>
+    <body>
+        <input id="firstnum" type="text" placeholder="First number" oninput="debouncecalculateSum()"><br></br>
+        <input id="secondnum" type="text" placeholder="Second number" oninput="debouncecalculateSum()"><br></br>
+        <!-- <button onclick="debouncecalculateSum()">Get Sum</button><br></br> -->
+        <div id="result"></div>
+    </body>
+</html>
