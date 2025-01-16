@@ -33,7 +33,7 @@ async function insertData() {
 
     try {
         await client.connect();
-        const insertQuery = "INSERT INTO users(username,email,password) VALUES ('username2','user3@ex.com','password')"
+        const insertQuery = "INSERT INTO users(username,email,password) VALUES ('username3','user4@ex.com','password2')"
         const res = await client.query(insertQuery);
         console.log("Insertion success", res);
     } catch (error) {
